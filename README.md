@@ -45,6 +45,29 @@ GrantGenie-AI follows an Agentic AI workflow where multiple specialized agents c
 ```
 
 ---
+# 🌐 Live Demo
+
+## Frontend
+
+🚀 React Application:
+
+https://grant-genie-ai-lovat.vercel.app
+
+
+## Backend API
+
+⚡ FastAPI Backend:
+
+https://grantgenie-ai-backend.onrender.com
+
+
+## API Documentation
+
+Swagger API Documentation:
+
+https://grantgenie-ai-backend.onrender.com/docs
+
+---
 
 # 🤖 AI Agents
 
@@ -328,9 +351,9 @@ http://localhost:5173
 
 ---
 
-# 👩‍💻 Team
+# 👩‍💻 About
 
-**GrantGenie-AI Team**
+**GrantGenie-AI**
 
 Agentic AI Project  
 IBM SkillsBuild Internship
