@@ -18,7 +18,7 @@ model = ModelInference(
     project_id=IBM_PROJECT_ID,
     params = {
     "decoding_method": "greedy",
-    "max_new_tokens": 150,
+    "max_new_tokens": 500,
     "min_new_tokens": 20,
     "temperature": 0.1,
     "repetition_penalty": 1.2
