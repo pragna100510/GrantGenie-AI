@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from routes.profile import router as profile_router
 from routes.grants import router as grant_router
 from routes.workflow import router as workflow_router
+from routes.eligibility import router as eligibility_router
 
 app = FastAPI(
     title="GrantGenie AI",
@@ -21,3 +22,4 @@ def home():
 app.include_router(profile_router)
 app.include_router(grant_router)
 app.include_router(workflow_router)
+app.include_router(eligibility_router)

@@ -1,30 +1,38 @@
 from agents.profile_agent import analyze_startup
 from agents.grant_agent import recommend_grants
-import json
+from agents.eligibility_agent import check_eligibility
 
 
 def run_agent_workflow(description: str):
 
-    # Step 1 - Profile Agent
+    # Step 1 - Analyze startup
     profile = analyze_startup(description)
 
-    # Convert JSON string into Python dictionary if needed
-    if isinstance(profile, str):
-        profile = profile.replace("```json", "").replace("```", "").strip()
-        profile = json.loads(profile)
-
-    # Step 2 - Grant Discovery Agent
+    # Step 2 - Recommend grants
     grants = recommend_grants(profile)
 
-    if isinstance(grants, str):
-        grants = grants.replace("```json", "").replace("```", "").strip()
+    # Step 3 - Eligibility Agent
+    grant_analysis = []
 
-        try:
-            grants = json.loads(grants)
-        except Exception:
-            pass
+    for recommendation in grants:
+
+        grant = recommendation["grant"]
+
+        eligibility = check_eligibility(
+            profile,
+            grant
+        )
+
+        grant_analysis.append({
+            "grant": grant,
+            "recommendation": {
+                "match_score": recommendation["match_score"],
+                "reason": recommendation["reason"]
+            },
+            "eligibility": eligibility
+        })
 
     return {
         "startup_profile": profile,
-        "recommended_grants": grants
+        "grant_analysis": grant_analysis
     }
