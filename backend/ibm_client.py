@@ -16,8 +16,11 @@ model = ModelInference(
     model_id="meta-llama/llama-3-3-70b-instruct",
     credentials=credentials,
     project_id=IBM_PROJECT_ID,
-    params={
-        "max_new_tokens": 400,
-        "temperature": 0.3,
-    }
+    params = {
+    "decoding_method": "greedy",
+    "max_new_tokens": 150,
+    "min_new_tokens": 20,
+    "temperature": 0.1,
+    "repetition_penalty": 1.2
+}
 )

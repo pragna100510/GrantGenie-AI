@@ -1,38 +1,37 @@
-import json
 from ibm_client import model
+from utils.json_parser import parse_json
 
 
-def analyze_startup(description: str):
+def analyze_startup(description):
+
     prompt = f"""
-You are an AI startup funding advisor.
+You are an expert startup analyst.
 
-Analyze the startup idea below.
+Analyze this startup:
 
-Startup:
 {description}
 
-Return ONLY valid JSON.
-Do not include markdown or ```json.
+Return ONLY one JSON object.
 
-Format:
+Never explain.
+Never repeat.
+Never use markdown.
+
+JSON format:
 
 {{
-  "domain": "",
-  "startup_stage": "",
-  "technology": [],
-  "funding_needed": "",
-  "possible_grants": []
+    "domain":"",
+    "country":"India",
+    "startup_stage":"",
+    "technology":[],
+    "funding_needed":""
 }}
 """
 
     response = model.generate_text(prompt=prompt)
 
-    # Remove markdown if present
-    response = response.replace("```json", "").replace("```", "").strip()
+    print("\n===== MODEL RESPONSE =====")
+    print(response)
+    print("==========================\n")
 
-    try:
-        return json.loads(response)
-    except Exception:
-        return {
-            "raw_response": response
-        }
+    return parse_json(response)
