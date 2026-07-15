@@ -1,0 +1,69 @@
+{
+  "name": "GrantGenie-AI",
+  "version": "1.0.0",
+  "description": "Agentic AI-powered startup grant recommendation and funding proposal generation system using IBM watsonx.ai",
+
+  "project_type": "Agentic AI Application",
+
+  "problem_statement": "Startups often struggle to identify suitable funding opportunities, understand eligibility requirements, and prepare effective grant proposals.",
+
+  "solution": "GrantGenie-AI uses multiple AI agents to analyze startup profiles, recommend suitable grants, verify eligibility, and generate AI-powered funding proposals.",
+
+  "technology_stack": {
+    "frontend": [
+      "React",
+      "Vite",
+      "CSS"
+    ],
+    "backend": [
+      "Python",
+      "FastAPI"
+    ],
+    "ai_platform": [
+      "IBM watsonx.ai"
+    ],
+    "llm_model": "meta-llama/llama-3-3-70b-instruct"
+  },
+
+  "agents": [
+    {
+      "name": "Startup Profile Agent",
+      "purpose": "Extracts startup domain, country, stage, technology, and funding requirements."
+    },
+    {
+      "name": "Grant Recommendation Agent",
+      "purpose": "Analyzes startup information and recommends suitable grants."
+    },
+    {
+      "name": "Eligibility Verification Agent",
+      "purpose": "Checks startup eligibility against grant requirements and provides eligibility scores."
+    },
+    {
+      "name": "Proposal Generation Agent",
+      "purpose": "Generates structured funding proposals using AI."
+    }
+  ],
+
+  "features": [
+    "AI-based startup profiling",
+    "Grant recommendation",
+    "Eligibility analysis with score",
+    "Missing requirement identification",
+    "AI-generated funding proposal",
+    "Interactive dashboard interface"
+  ],
+
+  "ibm_services": {
+    "platform": "IBM watsonx.ai",
+    "model_provider": "Meta",
+    "model_id": "meta-llama/llama-3-3-70b-instruct"
+  },
+
+  "deployment": {
+    "backend": "FastAPI",
+    "frontend": "React",
+    "hosting": "Render / IBM Code Engine"
+  },
+
+  "repository": "https://github.com/pragna100510/GrantGenie-AI"
+}
